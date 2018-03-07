@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>AuthorizePage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-col>
+      <ion-row>
+          <!-- <img src="/assets/imgs/logo.png"/> -->
+      </ion-row>
+      <ion-row>
+        <ion-label fixed>Username</ion-label>
+        <ion-input type="text" [(ngModel)]="user.username"></ion-input>
+      </ion-row>
+      <ion-row>
+        <ion-label fixed>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+      </ion-row>
+      <ion-row>
+        <button block ion-button (click)="loginUser()">Login</button>
+        <button block ion-button (click)="registerUser()">Register</button>
+      </ion-row>
+
+    </ion-col>
+  </ion-grid>
+</ion-content>

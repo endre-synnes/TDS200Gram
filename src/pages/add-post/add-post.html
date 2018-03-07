@@ -1,0 +1,34 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>AddPost</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-input placeholder="Skriv inn post her" [(ngModel)]="postText"></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button (click)="executeCamera()">Ta bilde</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button (click)="findGeoLocation()">Hent GPS</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button (click)="addPost()">Legg til Post</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <!--klammeparantes rundt "src" for å si at den skal hente en variabel i typescript-->
+      <img style="height: 300px" [src]="previewImage"/>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
