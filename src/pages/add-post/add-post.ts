@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Post } from '../../models/Post';
 import {Camera} from "@ionic-native/camera";
+import {Geolocation} from "@ionic-native/geolocation";
 
 
 @IonicPage()
@@ -16,10 +17,13 @@ export class AddPostPage {
   public postText: string = "";
   private previewImage = "";
 
+  public latitude: number = 0;
+  public longitude: number = 0;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              private camera: Camera) {
+              private camera: Camera,
+              private geolocation: Geolocation) {
     this.postCollection = navParams.get('postCollection');
   }
 
@@ -40,5 +44,15 @@ export class AddPostPage {
       });
   }
 
+
+  findGeoLocation(){
+    this.geolocation.getCurrentPosition()
+      .then((resp) => {
+        this.latitude = resp.coords.latitude;
+        this.longitude = resp.coords.longitude;
+      }).catch((error) => {
+        console.log('Error while getting location', error);
+    })
+  }
 
 }

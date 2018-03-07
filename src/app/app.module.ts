@@ -13,6 +13,7 @@ import { HomePage } from '../pages/home/home';
 
 import env from './env';
 import { Camera } from "@ionic-native/camera";
+import {Geolocation} from "@ionic-native/geolocation";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { Camera } from "@ionic-native/camera";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Camera
+    Camera,
+    Geolocation
   ]
 })
 export class AppModule {}
