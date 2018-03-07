@@ -41,6 +41,12 @@
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
+        <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
+            <string>Trenger din lokasjon!</string>
+        </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
+            <string>Trenger kamera!</string>
+        </edit-config>
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <icon height="57" src="resources/ios/icon/icon.png" width="57" />
@@ -86,4 +92,5 @@
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
     <engine name="android" spec="7.0.0" />
+    <engine name="ios" spec="~4.5.4" />
 </widget>
