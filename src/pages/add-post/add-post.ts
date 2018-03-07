@@ -4,6 +4,8 @@ import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Post } from '../../models/Post';
 import {Camera} from "@ionic-native/camera";
 import {Geolocation} from "@ionic-native/geolocation";
+import {PlacesProvider} from "../../providers/places/places";
+
 
 
 @IonicPage()
@@ -16,6 +18,7 @@ export class AddPostPage {
   public postCollection: AngularFirestoreCollection<Post>;
   public postText: string = "";
   private previewImage = "";
+  private locationName: string = "";
 
   public latitude: number = 0;
   public longitude: number = 0;
@@ -23,7 +26,8 @@ export class AddPostPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private camera: Camera,
-              private geolocation: Geolocation) {
+              private geolocation: Geolocation,
+              private placesProvidor: PlacesProvider) {
     this.postCollection = navParams.get('postCollection');
   }
 
@@ -52,7 +56,16 @@ export class AddPostPage {
         this.longitude = resp.coords.longitude;
       }).catch((error) => {
         console.log('Error while getting location', error);
-    })
+    });
+
+
+    this.placesProvidor.getLocationFromGoogle()
+      .then((response: any) => {
+        this.locationName = response.data.results[0].formatted_address;
+      }).catch(error => {
+        console.log('Error while converting location', error);
+    });
   }
+
 
 }
