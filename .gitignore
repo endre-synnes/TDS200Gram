@@ -36,3 +36,4 @@ UserInterfaceState.xcuserstate
 
 
 env.ts
+/src/app/googleApiKey.ts

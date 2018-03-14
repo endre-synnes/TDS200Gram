@@ -19,7 +19,7 @@
         <button ion-button (click)="executeCamera()">Ta bilde</button>
       </ion-col>
       <ion-col>
-        <button ion-button (click)="findGeoLocation()">Hent GPS</button>
+        <button ion-button (click)="findGeolocation()">Hent GPS</button>
       </ion-col>
       <ion-col>
         <button ion-button (click)="addPost()">Legg til Post</button>
@@ -27,11 +27,11 @@
     </ion-row>
     <ion-row>
       <!--klammeparantes rundt "src" for å si at den skal hente en variabel i typescript-->
-      <img style="height: 200px" [src]="previewImage"/>
+      <img style="height: 300px" [src]="'data:image/jpeg;base64,' + previewImage"/>
     </ion-row>
     <ion-row>
-      <p>{{latitude}}</p>
-      <p>{{longitude}}</p>
+      <!--<p>{{latitude}}</p>-->
+      <!--<p>{{longitude}}</p>-->
     </ion-row>
     <ion-row>
       <p>{{locationName}}</p>

@@ -9,6 +9,9 @@
 
 <ion-content padding>
   {{post.body}}
+  {{post.author}}
+  <img src="{{post.imgUrl}}"/>
+
 
   <ion-list>
     <ion-item *ngFor="let comment of comments | async">

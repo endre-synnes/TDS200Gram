@@ -15,6 +15,8 @@ import env from './env';
 import { Camera } from "@ionic-native/camera";
 import {Geolocation} from "@ionic-native/geolocation";
 import { PlacesProvider } from '../providers/places/places';
+import {AngularFireStorageModule} from "angularfire2/storage";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { PlacesProvider } from '../providers/places/places';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(env),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
