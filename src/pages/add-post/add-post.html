@@ -1,7 +1,7 @@
 
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="blueish">
     <ion-title>AddPost</ion-title>
   </ion-navbar>
 
@@ -16,25 +16,25 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <button ion-button (click)="executeCamera()">Ta bilde</button>
+        <button block ion-button (click)="executeCamera()">Ta bilde</button>
       </ion-col>
       <ion-col>
-        <button ion-button (click)="findGeolocation()">Hent GPS</button>
+        <button block ion-button (click)="findGeolocation()">Hent GPS</button>
       </ion-col>
       <ion-col>
-        <button ion-button (click)="addPost()">Legg til Post</button>
+        <button block ion-button (click)="addPost()">Legg til Post</button>
       </ion-col>
     </ion-row>
     <ion-row>
+      <p><b>Lokasjon: </b>{{locationName}}</p>
+    </ion-row>
+    <ion-row>
       <!--klammeparantes rundt "src" for å si at den skal hente en variabel i typescript-->
-      <img style="height: 300px" [src]="'data:image/jpeg;base64,' + previewImage"/>
+      <img *ngIf="previewImage.length > 0" style="height: 300px" [src]="'data:image/jpeg;base64,' + previewImage"/>
     </ion-row>
     <ion-row>
       <!--<p>{{latitude}}</p>-->
       <!--<p>{{longitude}}</p>-->
-    </ion-row>
-    <ion-row>
-      <p>{{locationName}}</p>
     </ion-row>
   </ion-grid>
 

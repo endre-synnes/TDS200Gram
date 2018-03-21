@@ -13,7 +13,7 @@ import { HomePage } from '../pages/home/home';
 
 import env from './env';
 import { Camera } from "@ionic-native/camera";
-import {Geolocation} from "@ionic-native/geolocation";
+import { Geolocation } from "@ionic-native/geolocation";
 import { PlacesProvider } from '../providers/places/places';
 import {AngularFireStorageModule} from "angularfire2/storage";
 import {HttpClientModule} from "@angular/common/http";
@@ -25,7 +25,10 @@ import {HttpClientModule} from "@angular/common/http";
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      scrollAssist: false,
+      autoFocusAssist: false
+    }),
     AngularFireModule.initializeApp(env),
     AngularFirestoreModule,
     AngularFireAuthModule,

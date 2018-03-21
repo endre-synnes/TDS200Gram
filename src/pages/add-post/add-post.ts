@@ -58,7 +58,8 @@ export class AddPostPage {
     this.camera.getPicture({
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      cameraDirection: this.camera.Direction.BACK
+      cameraDirection: this.camera.Direction.BACK,
+      correctOrientation: true
     })
       .then(imgBase64 => {
         // Etter å ha tatt bildet får vi det returnert i filtypen "base64", som er en lang tekststreng (som vist i forelesningen).
