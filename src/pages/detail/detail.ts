@@ -19,7 +19,7 @@ export class DetailPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.post = navParams.get('post');
     this.postCollection = navParams.get('postCollection');
-    
+
     this.comments = this.postCollection
                         .doc(this.post.id)
                         .collection('comments')
@@ -34,6 +34,8 @@ export class DetailPage {
         .add({
           body: this.commentText
         });
+
+    this.commentText = "";
   }
 
 }

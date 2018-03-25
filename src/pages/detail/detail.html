@@ -8,19 +8,36 @@
 
 
 <ion-content padding>
-  {{post.body}}
-  {{post.author}}
-  <img src="{{post.imgUrl}}"/>
+
+  <ion-card>
+
+    <ion-item>
+      <h2>Author: {{post.author}}</h2>
+    </ion-item>
+
+    <img src="{{post.imgUrl}}"/>
+
+
+    <ion-card-content>
+      {{post.body}}
+    </ion-card-content>
+
+
+  </ion-card>
 
 
   <ion-list>
+    <ion-item>
+      <ion-card-title>Comments</ion-card-title>
+    </ion-item>
     <ion-item *ngFor="let comment of comments | async">
       {{comment.body}}
     </ion-item>
   </ion-list>
 
-  <ion-input [(ngModel)]="commentText">
 
-  </ion-input>
-  <button ion-button (click)="addComment()">Legg til kommentar</button>
+  <section>
+    <ion-input class="text-input-field" type="text" [(ngModel)]="commentText"></ion-input>
+    <button class="add-comment-btn" block ion-button (click)="addComment()">Legg til kommentar</button>
+  </section>
 </ion-content>

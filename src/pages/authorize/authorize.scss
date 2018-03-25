@@ -29,4 +29,8 @@ page-authorize {
     border-radius: 3px;
     box-shadow: 0 2px 1px 0 rgba(0,0,0,0.14);
   }
+
+  button {
+    background: map-get($colors, blueish) !important;
+  }
 }
